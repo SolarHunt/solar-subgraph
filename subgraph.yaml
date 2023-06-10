@@ -45,7 +45,7 @@ dataSources:
           handler: handleRoleGranted
         - event: RoleRevoked(indexed bytes32,indexed address,indexed address)
           handler: handleRoleRevoked
-      file: ./mapping/treasure.ts
+      file: ./src/mappings/treasure-hunt.ts
   - kind: ethereum/contract
     name: CharityID
     network: sepolia
@@ -61,7 +61,7 @@ dataSources:
         - Charity
       abis:
         - name: CharityID
-          file: ./abis/CharityID.json
+          file: ./abis/Charity-Id.json
       eventHandlers:
         - event: CharityGainUpdated(uint256,uint256)
           handler: handleCharityGainUpdated
@@ -69,4 +69,4 @@ dataSources:
           handler: handleCidUpdated
         - event: Mint(indexed address,uint256,string)
           handler: Mint
-      file: ./mapping/charity.ts
+      file: ./src/mappings/charity-id.ts

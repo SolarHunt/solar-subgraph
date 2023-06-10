@@ -1,0 +1,48 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: TreasureHunt
+    network: mumbai
+    source:
+      address: "0x757edCd3c5439397b7aFA06ADb7C2D1BCAF661f1"
+      abi: TreasureHunt
+      startBlock: 36667586
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - DepositToParticipateDone
+        - RoleAdminChanged
+        - RoleGranted
+        - RoleRevoked
+        - TreasureHuntClaimed
+        - TreasureHuntClosed
+        - TreasureHuntDetailedUpdated
+        - WithdrawDone
+        - treasureHuntCreated
+      abis:
+        - name: TreasureHunt
+          file: ./abis/TreasureHunt.json
+      eventHandlers:
+        - event: DepositToParticipateDone(indexed address,uint256,uint256)
+          handler: handleDepositToParticipateDone
+        - event: RoleAdminChanged(indexed bytes32,indexed bytes32,indexed bytes32)
+          handler: handleRoleAdminChanged
+        - event: RoleGranted(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleGranted
+        - event: RoleRevoked(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleRevoked
+        - event: TreasureHuntClaimed(indexed uint256,indexed address)
+          handler: handleTreasureHuntClaimed
+        - event: TreasureHuntClosed(indexed uint256)
+          handler: handleTreasureHuntClosed
+        - event: TreasureHuntDetailedUpdated(indexed uint256,string)
+          handler: handleTreasureHuntDetailedUpdated
+        - event: WithdrawDone(indexed address,uint256)
+          handler: handleWithdrawDone
+        - event: treasureHuntCreated(uint8,uint256,uint256,uint256,string,bytes32)
+          handler: handletreasureHuntCreated
+      file: ./src/treasure-hunt.ts

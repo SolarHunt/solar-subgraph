@@ -1,6 +1,26 @@
 type Charity @entity {
-  id: Bytes!
-  count: BigInt!
-  playerAddress: Bytes! # address
-  amountDeposit: BigInt! # uint256
+  id: ID! # Charity id
+  name: String! # Charity name
+  createdAt: BigInt! # timestamp of block creation
+  updatedAt: BigInt! # timestamp of the last change
+  cid: String
+  charityGain: BigInt! # uint256
+}
+
+type Player @entity {
+  id: ID!
+  address: Bytes!
+  treasureHuntId: String!
+  depositAmount: BigInt!
+}
+
+type TreasureHunt @entity {
+  id: ID!
+  status: String!
+  charityId: String!
+  depositAmount: BigInt!
+  cid: String!
+  totalTreasureHuntDeposit: BigInt!
+  secretCodeHash: Bytes!
+  numParticipants: BigInt!
 }

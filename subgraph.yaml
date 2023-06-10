@@ -7,8 +7,8 @@ dataSources:
     network: sepolia
     source:
       abi: TreasureHunt
-      address: "0x7D008848856bc6E83b29c5Fa289c39DF52751068"
-      startBlock: 3662680
+      address: "0x757edCd3c5439397b7aFA06ADb7C2D1BCAF661f1"
+      startBlock: 36667586
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -46,14 +46,13 @@ dataSources:
         - event: RoleRevoked(indexed bytes32,indexed address,indexed address)
           handler: handleRoleRevoked
       file: ./mapping/treasure.ts
-
   - kind: ethereum/contract
     name: CharityID
     network: sepolia
     source:
       abi: CharityID
-      address: "0xf8c813e0ee9A4ab70418CD57Dcf1aC2162E2d0fD"
-      startBlock: 3662680
+      address: "0x757edCd3c5439397b7aFA06ADb7C2D1BCAF661f1"
+      startBlock: 36667586
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -70,5 +69,4 @@ dataSources:
           handler: handleCidUpdated
         - event: Mint(indexed address,uint256,string)
           handler: Mint
-
       file: ./mapping/charity.ts

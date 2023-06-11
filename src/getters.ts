@@ -27,6 +27,7 @@ export function getOrSetTreasureHunt(treasureHuntId: BigInt): TreasureHunt {
     treasureHunt.totalTreasureHuntDeposit = ZERO
     treasureHunt.numParticipants = ZERO
     treasureHunt.secretCodeHash = ZERO_ADDRESS 
+    treasureHunt.players = []
     treasureHunt.save()
   }
   return treasureHunt

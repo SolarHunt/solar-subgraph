@@ -17,6 +17,7 @@ import { ZERO } from "../constants";
 export function handleDepositToParticipateDone(
   event: DepositToParticipateDone
 ): void {
+  
 }
 
 export function handleRoleAdminChanged(event: RoleAdminChanged): void {}
@@ -40,7 +41,7 @@ export function handletreasureHuntCreated(event: treasureHuntCreated): void {
   treasureHunt.charityId = event.params.charityId.toString()
   treasureHunt.cid = event.params.treasureHuntCid
   treasureHunt.depositAmount = event.params.bountyAmount
-  treasureHunt.charityId
+  treasureHunt.charityId = event.params.charityId.toString()
   treasureHunt.secretCodeHash = event.params.secretCodeHash
   treasureHunt.status = event.params.status.toString()
   treasureHunt.numParticipants = ZERO

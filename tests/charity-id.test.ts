@@ -8,9 +8,9 @@ import {
 } from "matchstick-as/assembly/index"
 import { Address, BigInt, Bytes } from "@graphprotocol/graph-ts"
 import { Approval } from "../generated/schema"
-import { Approval as ApprovalEvent } from "../generated/Contract/Contract"
+import { Approval as ApprovalEvent } from "../generated/CharityId/CharityId"
 import { handleApproval } from "../src/mappings/charity-id"
-import { createApprovalEvent } from "./contract-utils"
+import { createApprovalEvent } from "./charity-id-utils"
 
 // Tests structure (matchstick-as >=0.5.0)
 // https://thegraph.com/docs/en/developer/matchstick/#tests-structure-0-5-0

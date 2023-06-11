@@ -10,7 +10,7 @@ import {
   RoleGranted,
   RoleRevoked,
   Transfer
-} from "../generated/Contract/Contract"
+} from "../generated/CharityId/CharityId"
 
 export function createApprovalEvent(
   owner: Address,

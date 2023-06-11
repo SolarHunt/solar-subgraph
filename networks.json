@@ -1,12 +1,11 @@
 {
   "sepolia": {
     "TreasureHunt": {
-      "address": "0x757edCd3c5439397b7aFA06ADb7C2D1BCAF661f1",
-      "startBlock": 36667586
+      "address": "0x7D008848856bc6E83b29c5Fa289c39DF52751068",
+      "startBlock": 3662684
     },
-    "CharityID": {
-      "address": "0x757edCd3c5439397b7aFA06ADb7C2D1BCAF661f1",
-      "startBlock": 36667586
+    "CharityId": {
+      "address": "0xf8c813e0ee9A4ab70418CD57Dcf1aC2162E2d0fD"
     }
   }
 }

@@ -11,6 +11,8 @@ import {
   WithdrawDone,
   treasureHuntCreated,
 } from "../../generated/TreasureHunt/TreasureHunt";
+import { getOrSetTreasureHunt } from "../getters"
+import { ZERO } from "../constants";
 
 export function handleDepositToParticipateDone(
   event: DepositToParticipateDone
@@ -33,4 +35,16 @@ export function handleTreasureHuntDetailedUpdated(
 
 export function handleWithdrawDone(event: WithdrawDone): void {}
 
-export function handletreasureHuntCreated(event: treasureHuntCreated): void {}
+export function handletreasureHuntCreated(event: treasureHuntCreated): void {
+  let treasureHunt = getOrSetTreasureHunt(event.params.id)
+  treasureHunt.charityId = event.params.charityId.toString()
+  treasureHunt.cid = event.params.treasureHuntCid
+  treasureHunt.depositAmount = event.params.bountyAmount
+  treasureHunt.charityId
+  treasureHunt.secretCodeHash = event.params.secretCodeHash
+  treasureHunt.status = event.params.status.toString()
+  treasureHunt.numParticipants = ZERO
+  treasureHunt.save()
+}
+
+

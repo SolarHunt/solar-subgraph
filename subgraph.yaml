@@ -44,6 +44,7 @@ dataSources:
     source:
       abi: CharityId
       address: "0xf8c813e0ee9A4ab70418CD57Dcf1aC2162E2d0fD"
+      startBlock: 3658811
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -54,6 +55,8 @@ dataSources:
         - name: CharityId
           file: ./abis/CharityId.json
       eventHandlers:
+        - event: CharityGainUpdated(uint256,uint256)
+          handler: handleCharityGainUpdated
         - event: CidUpdated(indexed uint256,string)
           handler: handleCidUpdated
         - event: Mint(indexed address,uint256,string)

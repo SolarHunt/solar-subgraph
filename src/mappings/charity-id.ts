@@ -2,7 +2,7 @@ import { BigInt } from "@graphprotocol/graph-ts"
 import {
   // Approval as ApprovalEvent,
   // ApprovalForAll as ApprovalForAllEvent,
-  // CharityGainUpdated as CharityGainUpdatedEvent,
+  CharityGainUpdated as CharityGainUpdatedEvent,
   CidUpdated as CidUpdatedEvent,
   Mint as MintEvent,
   // RoleAdminChanged as RoleAdminChangedEvent,
@@ -20,8 +20,12 @@ import { Charity } from "../../generated/schema"
 // export function handleApprovalForAll(event: ApprovalForAllEvent): void {
 // }
 
-// export function handleCharityGainUpdated(event: CharityGainUpdatedEvent): void {
-// }
+export function handleCharityGainUpdated(event: CharityGainUpdatedEvent): void {
+  const charity = getOrSetCharity(event.params._charityId)
+  charity.charityGain = event.params._charityGain
+  charity.updatedAt = event.block.timestamp
+  charity.save()
+}
 
 export function handleCidUpdated(event: CidUpdatedEvent): void {
   const charity = getOrSetCharity(event.params._tokenId)

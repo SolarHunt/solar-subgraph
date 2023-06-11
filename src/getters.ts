@@ -1,5 +1,5 @@
-import { BigInt } from "@graphprotocol/graph-ts";
-import { Charity, TreasureHunt } from "../generated/schema";
+import { Address, BigInt } from "@graphprotocol/graph-ts";
+import { Charity, Player, TreasureHunt } from "../generated/schema";
 import { ZERO, ZERO_ADDRESS } from "./constants";
 
 export function getOrSetCharity(charityId: BigInt): Charity {
@@ -16,8 +16,6 @@ export function getOrSetCharity(charityId: BigInt): Charity {
     return charity
 }
 
-
-
 export function getOrSetTreasureHunt(treasureHuntId: BigInt): TreasureHunt {
   let treasureHunt = TreasureHunt.load(treasureHuntId.toString())
   if(!treasureHunt) {
@@ -33,3 +31,14 @@ export function getOrSetTreasureHunt(treasureHuntId: BigInt): TreasureHunt {
   }
   return treasureHunt
 }
+
+// export function getOrSetPlayer(playerAddress: Address): Player {
+//     let player = Player.load(playerAddress.toString())
+//     if(!player) {
+//       player.id = playerAddress.toString()
+//       player.treasureHuntId = ""
+//       player.depositAmount = ZERO
+//       player.save()
+//     }
+//     return player 
+// }

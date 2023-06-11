@@ -8,8 +8,7 @@ type Charity @entity {
 }
 
 type Player @entity {
-  id: ID!
-  address: Bytes!
+  id: String! # addy
   treasureHuntId: String!
   depositAmount: BigInt!
 }
@@ -23,4 +22,5 @@ type TreasureHunt @entity {
   totalTreasureHuntDeposit: BigInt!
   secretCodeHash: Bytes!
   numParticipants: BigInt!
+  players: [String!]!
 }
